@@ -11,7 +11,10 @@ async function handleGenerateNewShortURL(req,res){
         visitHistory:[],
     });
     const savedUser =await newurl.save();
-    return res.json({id:savedUser.shortId});
+    res.render("home.ejs",{
+        id:savedUser.shortId,
+    })
+    /*return res.json({id:savedUser.shortId});*/
 }
 
 async function handleGetAnalytics(req,res){
